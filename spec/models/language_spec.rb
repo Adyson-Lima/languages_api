@@ -7,7 +7,7 @@ RSpec.describe Language, type: :model do
   describe "Teste de preenchimento do model Language" do
 
     it "name consegue ser preenchido?" do
-      @language.name = ""
+      @language.name = "ruby"
       expect(@language.name).to eq("ruby")
     end
 
