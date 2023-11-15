@@ -1,10 +1,14 @@
 class Api::V1::LanguagesController < ApplicationController
 
-  #before_action :set_language, only: %i[] #show update destroy
+  before_action :set_language, only: %i[show] #show update destroy
 
   def index
     @languages = Language.all
     render json: @languages
+  end
+
+  def show
+    render json: @language
   end
 
 private
