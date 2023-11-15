@@ -21,8 +21,8 @@ RSpec.describe Language, type: :model do
   describe "Teste de validação do model Language" do
 
     it "Language valida com campos obrigatorios preenchidos?" do
-      @language.name = ""
-      @language.framework = ""
+      @language.name = "java"
+      @language.framework = "spring"
       expect(@language).to be_valid
     end
 
