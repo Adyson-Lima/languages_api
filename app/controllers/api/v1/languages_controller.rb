@@ -1,6 +1,6 @@
 class Api::V1::LanguagesController < ApplicationController
 
-  before_action :set_language, only: %i[show update] #show update destroy
+  before_action :set_language, only: %i[show update destroy] #show update destroy
 
   def index
     @languages = Language.all
@@ -26,6 +26,10 @@ class Api::V1::LanguagesController < ApplicationController
     else
       render json: @language.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @language.destroy!
   end
 
 private
