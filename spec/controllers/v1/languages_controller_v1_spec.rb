@@ -20,4 +20,12 @@ RSpec.describe Api::V1::LanguagesController, type: :controller do
     end
   end
 
+  describe "POST /api/v1/languages" do
+    it "Consegue criar uma language e retornar status 201?" do
+      post :create, params: {language: {name: "java", framework: "spring"}, format: :json}
+      expect(response.body).to include_json(framework: "spring")
+      expect(response).to have_http_status(201)
+    end
+  end
+
 end
