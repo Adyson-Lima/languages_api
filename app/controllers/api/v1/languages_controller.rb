@@ -11,6 +11,15 @@ class Api::V1::LanguagesController < ApplicationController
     render json: @language
   end
 
+  def create
+    @language = Language.new(language_params)
+    if @language.save
+      render json: @language, status: :created, location: api_v1_language_url(@language)
+    else
+      render json: @language.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_language
