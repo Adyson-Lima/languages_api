@@ -12,7 +12,7 @@ RSpec.describe Language, type: :model do
     end
 
     it "framework consegue ser preenchido?" do
-      @language.framework = ""
+      @language.framework = "sinatra"
       expect(@language.framework).to eq("sinatra")
     end
 
