@@ -37,4 +37,13 @@ RSpec.describe Api::V1::LanguagesController, type: :controller do
     end
   end
 
+  describe "DELETE /api/v1/languages/id" do
+    it "Consegue excluir uma language e retornar status 204?" do
+      language = Language.last
+      delete :destroy, params: {id: language.id}
+      expect(Language.all).not_to include(language)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
