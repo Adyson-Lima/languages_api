@@ -26,6 +26,11 @@ RSpec.describe Language, type: :model do
       expect(@language).to be_valid
     end
 
+    it "Language invalida com campos obrigatorios não preenchidos?" do
+      language = Language.new
+      expect(language).to be_valid
+    end
+
   end
 
 end
