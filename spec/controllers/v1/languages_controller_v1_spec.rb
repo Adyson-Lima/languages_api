@@ -28,4 +28,13 @@ RSpec.describe Api::V1::LanguagesController, type: :controller do
     end
   end
 
+  describe "PATCH /api/v1/languages/id" do
+    it "Consegue atualizar uma language e retornar staus 200?" do
+      language = Language.last
+      patch :update, params: {language: {name: "ruby", framework: "rails"}, id: language.id}
+      expect(response.body).to include_json(name: "ruby")
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
